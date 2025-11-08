@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 280 60% 25%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 280 60% 25%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 330 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 60% 30%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 280 40% 20%;
+    --muted-foreground: 280 20% 70%;
+
+    --accent: 330 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 280 30% 30%;
+    --input: 280 30% 30%;
+    --ring: 330 100% 60%;
+
+    --radius: 1rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(280, 60%, 35%), hsl(280, 60%, 20%));
+    --gradient-button: linear-gradient(90deg, hsl(330, 100%, 60%), hsl(310, 100%, 65%));
+    --gradient-text: linear-gradient(90deg, hsl(310, 100%, 70%), hsl(280, 100%, 75%));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer utilities {
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: confetti-fall 3s ease-out forwards;
+  }
+  
+  @keyframes confetti-fall {
+    to {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(0); opacity: 0; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
